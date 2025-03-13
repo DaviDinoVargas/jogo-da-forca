@@ -49,7 +49,7 @@ namespace JogoDaForca.ConsoleApp
 
                 //[null, null, null, null...]
                 char[]letrasEncontradas = new char[palavraEscolhida.Length];
-                for (int caractereAtual = 0; caractereAtual <letrasEncontradas.Length; caractereAtual++)
+                for (int caractereAtual = 0; caractereAtual < letrasEncontradas.Length; caractereAtual++)
                 {
                     letrasEncontradas[caractereAtual] = '_';
                 }
@@ -115,12 +115,15 @@ namespace JogoDaForca.ConsoleApp
                     if (letraFoiEncontrada == false)
                         quantidadeErros++;
 
+
                     string palavraEncontradaCompleta = String.Join("",letrasEncontradas);
+
                     jogadorGanhou = palavraEncontradaCompleta == palavraEscolhida;
                     jogadorPerdeu = quantidadeErros > 5;
 
                     if (jogadorGanhou)
                 {
+                    
                     Console.WriteLine("----------------------------------------");
                     Console.WriteLine($"Você acertou a palavra {palavraEscolhida}, parabéns!");
                     Console.WriteLine("----------------------------------------");
@@ -146,7 +149,6 @@ namespace JogoDaForca.ConsoleApp
 
                 Console.Clear();
             }
-
             Console.WriteLine("Finalizando...");
             Console.ReadLine();
         }
