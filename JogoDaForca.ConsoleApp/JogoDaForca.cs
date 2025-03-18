@@ -30,7 +30,10 @@ namespace JogoDaForca.ConsoleApp
             palavraEscolhida = palavras[gerador.Next(palavras.Length)];
             letrasEncontradas = new char[palavraEscolhida.Length];
 
-            Array.Fill(letrasEncontradas, '_');
+            for (int contador = 0; contador < letrasEncontradas.Length; contador++)
+            {
+                letrasEncontradas[contador] = '_';
+            }
             quantidadeErros = 0;
             jogadorPerdeu = false;
             jogadorGanhou = false;
