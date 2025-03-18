@@ -46,7 +46,6 @@ namespace JogoDaForca.ConsoleApp
                 int indiceEscolhido = geradorDeNumeros.Next(palavras.Length);
                 string palavraEscolhida = palavras[indiceEscolhido];
                 
-
                 //[null, null, null, null...]
                 char[]letrasEncontradas = new char[palavraEscolhida.Length];
                 for (int caractereAtual = 0; caractereAtual < letrasEncontradas.Length; caractereAtual++)
@@ -60,15 +59,13 @@ namespace JogoDaForca.ConsoleApp
                  do // faça
                 {
                 
-
                 string cabecaDesenho = quantidadeErros >= 1 ? "X_x " : " ";
                 string troncoDesenho = quantidadeErros >= 2 ? "|" : " ";
                 string troncoInferiorDesenho = quantidadeErros >= 2 ? " | " : " ";
                 string braco1Desenho = quantidadeErros >= 3 ? "/" : " ";
                 string braco2Desenho = quantidadeErros >= 4 ? "\\" : " ";
                 string pernasDesenho = quantidadeErros >= 5 ? "/ \\" : " ";
-
-                   
+ 
                 Console.Clear();
                 Console.WriteLine("----------------------------------------");
                 Console.WriteLine("             Jogo da Forca");
@@ -84,7 +81,7 @@ namespace JogoDaForca.ConsoleApp
                 Console.WriteLine(" |                  ");
                 Console.WriteLine("_|____    " + String.Join("",letrasEncontradas));
                 Console.WriteLine("ERROS: " + quantidadeErros);
-                Console.WriteLine("----------------------------------------");
+                Console.WriteLine("-----------------------------------------");
 
 
                     //dado um caractere
@@ -101,6 +98,7 @@ namespace JogoDaForca.ConsoleApp
 
                     bool letraFoiEncontrada = false;
                     char chute = entradaInicial[0];
+
                     for (int contadorCaracteres = 0; contadorCaracteres < palavraEscolhida.Length; contadorCaracteres++)
                 {
                         
@@ -115,9 +113,7 @@ namespace JogoDaForca.ConsoleApp
                     if (letraFoiEncontrada == false)
                         quantidadeErros++;
 
-
                     string palavraEncontradaCompleta = String.Join("",letrasEncontradas);
-
                     jogadorGanhou = palavraEncontradaCompleta == palavraEscolhida;
                     jogadorPerdeu = quantidadeErros > 5;
 
@@ -129,7 +125,6 @@ namespace JogoDaForca.ConsoleApp
                     Console.WriteLine("----------------------------------------");
                 }
 
-
                 else if (jogadorPerdeu)
                 {
                     Console.WriteLine("----------------------------------------");
@@ -139,9 +134,8 @@ namespace JogoDaForca.ConsoleApp
 
                 } while (jogadorGanhou == false && jogadorPerdeu == false); // enquanto (condição)
 
-
                 Console.Write("Deseja jogar novamente? (S/N)");
-                string resposta = Console.ReadLine()!.ToUpper().Trim();
+                string resposta = Console.ReadLine()!.ToUpper();
                 if (resposta != "S")
                 {
                     jogarNovamente = false;
